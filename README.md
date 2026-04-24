@@ -24,7 +24,7 @@ Built as a single-page HTML/CSS/JS site with a dark sports analytics aesthetic �
 ## Sections
 
 - **Hero** — Introduction and quick links
-- **Stats** — 9 repos, 4 papers, 5 domains
+- **Stats** — 9 repos, 5 domains
 - **About** — Background and education
 - **Projects** — All 9 GitHub projects with descriptions
 - **Skills** — 40+ tools and technologies
