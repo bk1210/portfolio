@@ -447,37 +447,7 @@ section { position: relative; z-index: 1; }
 }
 .pub-authors { font-size: 0.82rem; color: var(--gray); font-weight: 300; }
 
-/* CONTACT */
-.contact-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  max-width: 700px;
-}
-.contact-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 2px; margin-bottom: 1rem; }
-.contact-text p { color: var(--gray); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
-.contact-links { display: flex; flex-direction: column; gap: 0.8rem; }
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
-  border: 1px solid var(--border);
-  background: var(--card);
-  text-decoration: none;
-  transition: all 0.3s;
-  cursor: none;
-}
-.contact-link:hover { border-color: rgba(0,255,136,0.3); background: rgba(0,255,136,0.04); }
-.contact-icon {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--green);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  min-width: 80px;
-}
-.contact-val { font-size: 0.9rem; color: var(--white); font-weight: 300; }
+
 
 /* FOOTER */
 footer {
@@ -806,19 +776,51 @@ footer span { color: var(--green); }
 </section>
 
 <!-- CONTACT -->
+<!-- CONTACT -->
 <section class="section-pad" id="contact">
   <div class="section-label">Get In Touch</div>
-  <div class="contact-grid">
-    <div class="contact-text reveal">
+  <div style="max-width: 700px;">
+    <div class="reveal">
       <div class="section-title">LET'S<br><span style="color:var(--green)">CONNECT</span></div>
-      <p>Open to research collaborations, internships, and exciting projects in AI, sports analytics, and deep learning. Feel free to reach out!</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+      <p style="color:var(--gray);line-height:1.7;font-weight:300;margin-bottom:2rem;">Open to research collaborations, internships, and exciting projects in AI, sports analytics, and deep learning. Feel free to reach out!</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;">
         <a href="mailto:bharathkesav1275@gmail.com" target="_blank" class="btn">Gmail →</a>
         <a href="https://github.com/bk1210/bk1210/raw/main/Resume.pdf" target="_blank" class="btn">Download Resume →</a>
       </div>
     </div>
-    <div class="contact-links reveal">
-      <!-- all your contact-link items here -->
+    <div class="reveal" style="display:flex;flex-direction:column;gap:0.8rem;">
+      <a href="mailto:bharathkesav1275@gmail.com" class="contact-link">
+        <span class="contact-icon">Email</span>
+        <span class="contact-val">bharathkesav1275@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/bharath-kesav-r-5a2067319/" target="_blank" class="contact-link">
+        <span class="contact-icon">LinkedIn</span>
+        <span class="contact-val">linkedin.com/in/bharath-kesav-r</span>
+      </a>
+      <a href="https://github.com/bk1210" target="_blank" class="contact-link">
+        <span class="contact-icon">GitHub</span>
+        <span class="contact-val">github.com/bk1210</span>
+      </a>
+      <a href="https://huggingface.co/bk1210" target="_blank" class="contact-link">
+        <span class="contact-icon">HuggingFace</span>
+        <span class="contact-val">huggingface.co/bk1210</span>
+      </a>
+      <a href="https://kaggle.com/bk1210" target="_blank" class="contact-link">
+        <span class="contact-icon">Kaggle</span>
+        <span class="contact-val">kaggle.com/bk1210</span>
+      </a>
+      <a href="https://www.instagram.com/bhaaaraath/" target="_blank" class="contact-link">
+        <span class="contact-icon">Instagram</span>
+        <span class="contact-val">@bhaaaraath</span>
+      </a>
+      <a href="https://github.com/bk1210/bk1210/raw/main/Resume.pdf" target="_blank" class="contact-link">
+        <span class="contact-icon">Resume</span>
+        <span class="contact-val">Download PDF →</span>
+      </a>
+      <a href="#" class="contact-link">
+        <span class="contact-icon">Institute</span>
+        <span class="contact-val">Amrita Vishwa Vidyapeetham, Coimbatore</span>
+      </a>
     </div>
   </div>
 </section>
