@@ -449,10 +449,10 @@ section { position: relative; z-index: 1; }
 
 /* CONTACT */
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 700px;
 }
 .contact-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 2px; margin-bottom: 1rem; }
 .contact-text p { color: var(--gray); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
@@ -811,17 +811,15 @@ footer span { color: var(--green); }
   <div class="contact-grid">
     <div class="contact-text reveal">
       <div class="section-title">LET'S<br><span style="color:var(--green)">CONNECT</span></div>
-      <p>Open to research collaborations, internships, and exciting projects in AI, sports analytics, and data analytics. Feel free to reach out!</p>
-      <a href="mailto:bharathkesav1275@gmail.com" target="_blank" class="btn">Gmail →</a>
-      <a href="https://www.linkedin.com/in/bharath-kesav-r-5a2067319/" target="_blank" class="btn">LinkedIn Profile →</a>
-      <a href="https://github.com/bk1210" target="_blank" class="btn">GitHub Profile →</a>
-      <a href="https://huggingface.co/bk1210" target="_blank" class="btn">Hugging Face Profile →</a>
-      <a href="https://www.kaggle.com/bharathkesav" target="_blank" class="btn">Kaggel Profile →</a>
-      <a href="https://www.instagram.com/bhaaaraath/" target="_blank" class="btn">Instagram Profile→</a>
-      <a href="https://github.com/bk1210/bk1210/raw/main/Resume.pdf" target="_blank" class="btn">My Resume →</a>
-      
+      <p>Open to research collaborations, internships, and exciting projects in AI, sports analytics, and deep learning. Feel free to reach out!</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+        <a href="mailto:bharathkesav1275@gmail.com" target="_blank" class="btn">Gmail →</a>
+        <a href="https://github.com/bk1210/bk1210/raw/main/Resume.pdf" target="_blank" class="btn">Download Resume →</a>
+      </div>
     </div>
-    
+    <div class="contact-links reveal">
+      <!-- all your contact-link items here -->
+    </div>
   </div>
 </section>
 
