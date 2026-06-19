@@ -584,4 +584,590 @@ async function fetchLiveStats(){
 fetchLiveStats();
 </script>
 </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharath Kesav R — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0c1a2e;
+  --navy2:#112035;
+  --navy3:#1a2d46;
+  --accent:#3d6b9e;
+  --accent2:#2d5788;
+  --accent-light:#e8f0f8;
+  --accent-mid:#b8d0e8;
+  --white:#ffffff;
+  --off:#f7f9fc;
+  --text:#0f172a;
+  --muted:#475569;
+  --subtle:#7c8fa6;
+  --border:#e2e8f0;
+  --border2:#cbd5e1;
+  --cs:0 1px 3px rgba(0,0,0,0.07),0 1px 2px rgba(0,0,0,0.04);
+  --csh:0 4px 12px rgba(61,107,158,0.14),0 2px 4px rgba(0,0,0,0.06);
+}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:'Inter',sans-serif;background:var(--off);color:var(--text);line-height:1.6}
+
+/* ── NAV ── */
+nav{
+  background:var(--navy);padding:0 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;position:sticky;top:0;z-index:100;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-av{width:34px;height:34px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;font-family:'DM Mono',monospace}
+.nav-name{color:#e2e8f0;font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:0.2rem}
+.nav-links a{color:#7c8fa6;text-decoration:none;font-size:13px;padding:6px 13px;border-radius:6px;transition:all 0.2s}
+.nav-links a:hover{color:#e2e8f0;background:rgba(255,255,255,0.07)}
+
+/* ── HERO ── */
+.hero{background:var(--navy);padding:3.5rem 2.5rem 3rem;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:rgba(61,107,158,0.1);pointer-events:none}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(61,107,158,0.18);border:1px solid rgba(61,107,158,0.38);
+  border-radius:20px;padding:4px 13px;font-size:12px;color:#93b8d8;
+  font-family:'DM Mono',monospace;margin-bottom:1.3rem;letter-spacing:0.3px;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite;flex-shrink:0}
+.hero h1{font-size:2.4rem;font-weight:700;color:#f1f5f9;line-height:1.15;margin-bottom:0.6rem}
+.hero h1 span{color:#7fb3d9}
+.hero-sub{color:#7c8fa6;font-size:0.93rem;max-width:560px;line-height:1.75;margin-bottom:1.8rem;font-weight:300}
+.hero-sub strong{color:#b0c4d8;font-weight:500}
+.hero-btns{display:flex;gap:0.65rem;flex-wrap:wrap}
+.btn-p{background:var(--accent);color:#fff;border:none;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:background 0.2s}
+.btn-p:hover{background:var(--accent2)}
+.btn-o{background:transparent;color:#7c8fa6;border:1px solid rgba(255,255,255,0.14);padding:9px 20px;border-radius:8px;font-size:13px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s}
+.btn-o:hover{border-color:rgba(255,255,255,0.3);color:#e2e8f0}
+
+/* ── STATS STRIP ── */
+.stats{background:#fff;border-bottom:1px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:1.3rem 1.5rem;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:1.75rem;font-weight:700;color:var(--accent);font-family:'DM Mono',monospace;display:block;line-height:1}
+.stat-l{font-size:11px;color:var(--subtle);text-transform:uppercase;letter-spacing:0.8px;margin-top:4px;display:block}
+
+/* ── MAIN ── */
+.main{max-width:960px;margin:0 auto;padding:2rem 1.5rem}
+.section{margin-bottom:2.5rem}
+.sec-hd{display:flex;align-items:center;gap:10px;margin-bottom:1.2rem}
+.sec-ico{width:30px;height:30px;border-radius:8px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:14px;flex-shrink:0}
+.sec-ico svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sec-title{font-size:1rem;font-weight:600;color:var(--text)}
+.sec-sub{font-size:11.5px;color:var(--subtle);margin-left:auto;font-family:'DM Mono',monospace}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.acard{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.4rem;box-shadow:var(--cs)}
+.a-lbl{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.8px;color:var(--subtle);margin-bottom:0.8rem}
+.a-txt{font-size:13.5px;color:var(--muted);line-height:1.75}
+.a-txt strong{color:var(--text);font-weight:500}
+.info-rows{display:flex;flex-direction:column;gap:0.45rem}
+.ir{display:flex;align-items:flex-start;gap:10px;padding:7px 10px;background:var(--off);border-radius:7px;font-size:13px}
+.ik{color:var(--subtle);font-family:'DM Mono',monospace;font-size:10.5px;min-width:68px;padding-top:1px;text-transform:uppercase;letter-spacing:0.4px}
+.iv{color:var(--text);font-weight:400}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem}
+.pc{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem;box-shadow:var(--cs);transition:all 0.2s;display:flex;flex-direction:column;gap:0.5rem}
+.pc:hover{box-shadow:var(--csh);border-color:var(--accent-mid);transform:translateY(-2px)}
+.p-badge{display:inline-flex;align-items:center;gap:4px;background:var(--accent-light);color:var(--accent2);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:500;width:fit-content}
+.p-name{font-size:14px;font-weight:600;color:var(--text);line-height:1.3}
+.p-desc{font-size:12.5px;color:var(--muted);line-height:1.55;flex:1}
+.p-stack{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:auto}
+.sp{font-size:10.5px;color:var(--slate, #4a6080);background:#f1f5f9;border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:'DM Mono',monospace}
+.p-links{display:flex;gap:0.5rem;margin-top:0.4rem;flex-wrap:wrap}
+.pl{font-size:11.5px;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:3px;font-weight:500}
+.pl:hover{text-decoration:underline}
+.live{background:#dcfce7;color:#166534;font-size:10px;padding:1px 6px;border-radius:4px;font-weight:500}
+
+/* ── SKILLS ── */
+.sk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.9rem}
+.skc{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem;box-shadow:var(--cs)}
+.sk-cat{font-size:12px;font-weight:600;color:var(--navy3);margin-bottom:0.7rem;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--border);padding-bottom:0.55rem}
+.sk-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.1rem}
+.st{font-size:11.5px;color:var(--muted);background:var(--off);border:1px solid var(--border);border-radius:6px;padding:3px 9px;transition:all 0.18s}
+.st:hover{border-color:var(--accent-mid);color:var(--accent2);background:var(--accent-light)}
+
+/* ── CONTACT ── */
+.c-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem}
+.cc{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem;box-shadow:var(--cs);text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:0.45rem;transition:all 0.2s}
+.cc:hover{box-shadow:var(--csh);border-color:var(--accent-mid);transform:translateY(-2px)}
+.c-ico{width:38px;height:38px;border-radius:9px;background:var(--accent-light);display:flex;align-items:center;justify-content:center}
+.c-ico svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.c-lbl{font-size:12px;font-weight:500;color:var(--text)}
+.c-val{font-size:11px;color:var(--subtle);word-break:break-all}
+.avail{background:var(--navy);border-radius:12px;padding:1rem 1.4rem;display:flex;align-items:center;gap:10px;margin-top:0.9rem}
+.av-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite;flex-shrink:0}
+.av-tx{color:#7c8fa6;font-size:13px}
+.av-tx strong{color:#e2e8f0;font-weight:500}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:1.5rem 2.5rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+footer p{font-size:12px;color:#475569}
+footer span{color:#7fb3d9}
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+
+@media(max-width:860px){
+  nav{padding:0 1.2rem}
+  .hero{padding:2.5rem 1.2rem 2rem}
+  .main{padding:1.5rem 1rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.proj-grid,.sk-grid,.c-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-av">BK</div>
+    <span class="nav-name">Bharath Kesav R</span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    Open to Internships &middot; Coimbatore / Bengaluru / Chennai / Remote
+  </div>
+  <h1>Bharath <span>Kesav R</span></h1>
+  <p class="hero-sub">
+    Int. M.Sc. Data Science &middot; <strong>Amrita Vishwa Vidyapeetham</strong><br>
+    Building production-grade AI in <strong>Sports Analytics</strong>, <strong>Graph Neural Networks</strong>,
+    <strong>Explainable AI</strong> &amp; <strong>RAG Pipelines</strong> &mdash; 10 repos, 5+ live deployments
+  </p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn-p">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+      View Projects
+    </a>
+    <a href="https://github.com/bk1210/bk1210/raw/main/Resume.pdf" target="_blank" class="btn-o">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      Resume
+    </a>
+    <a href="https://www.linkedin.com/in/bharath-kesav-r-5a2067319/" target="_blank" class="btn-o">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/bk1210" target="_blank" class="btn-o">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+      GitHub
+    </a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-n">10</span><span class="stat-l">GitHub Repos</span></div>
+  <div class="stat"><span class="stat-n">5</span><span class="stat-l">Live Deployments</span></div>
+  <div class="stat"><span class="stat-n">6</span><span class="stat-l">Domains</span></div>
+  <div class="stat"><span class="stat-n">2027</span><span class="stat-l">Graduating</span></div>
+</div>
+<div id="sync-indicator" style="text-align:center;padding:6px 0;background:#fff;border-bottom:1px solid var(--border);font-size:10px;color:var(--subtle);font-family:'DM Mono',monospace;letter-spacing:0.3px">
+  <span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:#4ade80;margin-right:5px;animation:pulse 2s infinite"></span>
+  Synced live from GitHub &amp; HuggingFace
+</div>
+
+<div class="main">
+
+  <!-- ABOUT -->
+  <div class="section" id="about">
+    <div class="sec-hd">
+      <div class="sec-ico">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <span class="sec-title">About Me</span>
+    </div>
+    <div class="about-grid">
+      <div class="acard">
+        <div class="a-lbl">Background</div>
+        <p class="a-txt">
+          Int. M.Sc. Data Science student at <strong>Amrita Vishwa Vidyapeetham</strong> (2022–2027).
+          Building end-to-end ML pipelines across <strong>Sports Analytics</strong>, <strong>Data Analytics</strong>,
+          <strong>Explainable AI</strong>, and <strong>Large Language Models</strong>.<br><br>
+          My passion for <strong>cricket and football</strong> drives my research — applying Graph Attention Networks,
+          Transformers, RAG pipelines, and SHAP explainability to extract real, actionable insights from raw match data.
+        </p>
+      </div>
+      <div class="acard">
+        <div class="a-lbl">Details</div>
+        <div class="info-rows">
+          <div class="ir"><span class="ik">Degree</span><span class="iv">Int. M.Sc. Data Science</span></div>
+          <div class="ir"><span class="ik">College</span><span class="iv">Amrita Vishwa Vidyapeetham, CBE</span></div>
+          <div class="ir"><span class="ik">Reg No.</span><span class="iv">CB.PS.I5DAS22110</span></div>
+          <div class="ir"><span class="ik">Focus</span><span class="iv">Data Analytics &middot; GNN &middot; NLP &middot; XAI</span></div>
+          <div class="ir"><span class="ik">Email</span><span class="iv">bharathkesav1275@gmail.com</span></div>
+          <div class="ir"><span class="ik">Location</span><span class="iv">Coimbatore, TN &middot; Open to Bengaluru, Chennai, Remote &amp; Hybrid</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section" id="projects">
+    <div class="sec-hd">
+      <div class="sec-ico">
+        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <span class="sec-title">Projects</span>
+      <span class="sec-sub" id="proj-stats-sub">10 repos &middot; 5+ live</span>
+    </div>
+    <div class="proj-grid">
+
+      <div class="pc">
+        <span class="p-badge">Graph DL &middot; Cricket</span>
+        <div class="p-name">CricketGraph-DL</div>
+        <p class="p-desc">GAT + BiLSTM + cross-attention Transformer for IPL T20 outcome prediction. 225K deliveries, 950 matches. Ball-by-ball win probability &amp; Player Impact Score with SHAP.</p>
+        <div class="p-stack"><span class="sp">PyTorch</span><span class="sp">PyG</span><span class="sp">SHAP</span><span class="sp">Optuna</span></div>
+        <div class="p-links">
+          <a href="https://github.com/bk1210/CricketGraph-DL-IPL-Match-Outcome-Prediction-Player-Impact-Analysis" target="_blank" class="pl">&#x2192; GitHub</a>
+        </div>
+      </div>
+
+      <div class="pc">
+        <span class="p-badge">NLP &middot; Transformers</span>
+        <div class="p-name">Sarcasm Detection</div>
+        <p class="p-desc">Multi-task RoBERTa with novel Sentiment Incongruence Auto-Labeler. F1-Macro 0.977, AUC 0.997. Cross-domain gains on 3 benchmarks. LIME token-level rationale extraction.</p>
+        <div class="p-stack"><span class="sp">RoBERTa</span><span class="sp">Focal Loss</span><span class="sp">LIME</span><span class="sp">HuggingFace</span></div>
+        <div class="p-links">
+          <a href="https://github.com/bk1210/Detecting-Sarcasm-as-Sentiment-Incongruence" target="_blank" class="pl">&#x2192; GitHub</a>
+          <a href="https://huggingface.co/spaces/bk1210/Sarcasm-Detector" target="_blank" class="pl">&#x2197; Demo <span class="live">Live</span></a>
+        </div>
+      </div>
+
+      <div class="pc">
+        <span class="p-badge">DL &middot; Football Analytics</span>
+        <div class="p-name">FootballRole-DL</div>
+        <p class="p-desc">Classifies Attacker/Midfielder/Defender from wearable sensor data. TCN+Transformer achieves 99.24% accuracy. LOSO 98.89%±0.42%. SHAP: ankle accel → Attacker.</p>
+        <div class="p-stack"><span class="sp">TCN</span><span class="sp">Transformer</span><span class="sp">SHAP</span><span class="sp">PAMAP2</span></div>
+        <div class="p-links">
+          <a href="https://github.com/bk1210/FootballRole-DL" target="_blank" class="pl">&#x2192; GitHub</a>
+        </div>
+      </div>
+
+      <div class="pc">
+        <span class="p-badge">RAG &middot; LLM</span>
+        <div class="p-name">Explainable Match Summaries</div>
+        <p class="p-desc">UCL match summaries via RAG + LLaMA 3.1 + SHAP. Self-curated dataset: 189 matches, 142 columns. Sentence-BERT + FAISS: cosine similarity 0.903 vs 0.373 baseline.</p>
+        <div class="p-stack"><span class="sp">LLaMA 3.1</span><span class="sp">FAISS</span><span class="sp">SHAP</span><span class="sp">Sentence-BERT</span></div>
+        <div class="p-links">
+          <a href="https://github.com/bk1210/Explainable-Match-Summaries" target="_blank" class="pl">&#x2192; GitHub</a>
+          <a href="https://huggingface.co/spaces/bk1210/Explainable-Match-Summaries" target="_blank" class="pl">&#x2197; Demo <span class="live">Live</span></a>
+        </div>
+      </div>
+
+      <div class="pc">
+        <span class="p-badge">ML &middot; Sports Analytics</span>
+        <div class="p-name">Football Match Prediction</div>
+        <p class="p-desc">Multi-league framework across 5 European leagues. ELO + rolling form + betting probabilities. 33 features, 25,979 records, 259 teams. Gradient Boosting: +0.073 F1 vs baseline.</p>
+        <div class="p-stack"><span class="sp">Gradient Boosting</span><span class="sp">SHAP</span><span class="sp">ELO</span><span class="sp">SQLite</span></div>
+        <div class="p-links">
+          <a href="https://github.com/bk1210/Football-Match-Outcome-Prediction-" target="_blank" class="pl">&#x2192; GitHub</a>
+          <a href="https://huggingface.co/spaces/bk1210/Football-Match-Outcome-Prediction" target="_blank" class="pl">&#x2197; Demo <span class="live">Live</span></a>
+        </div>
+      </div>
+
+      <div class="pc">
+        <span class="p-badge">Analytics &middot; Manufacturing</span>
+        <div class="p-name">Tyre Manufacturing Quality Dashboard</div>
+        <p class="p-desc">End-to-end manufacturing audit dashboard on 3,240 production batches. 10 KPIs incl. OEE (85.37%), X̄-R control charts (±3σ). Batch Risk Scorer with SHAP, ROC-AUC 0.7417.</p>
+        <div class="p-stack"><span class="sp">Streamlit</span><span class="sp">SHAP</span><span class="sp">Gradient Boosting</span><span class="sp">Control Charts</span></div>
+        <div class="p-links">
+          <a href="https://github.com/bk1210/tyre-manufacturing-quality-analytics" target="_blank" class="pl">&#x2192; GitHub</a>
+          <a href="https://huggingface.co/spaces/bk1210/Tyre-Manufacturing-Quality-Analytics-Dashboard" target="_blank" class="pl">&#x2197; Demo <span class="live">Live</span></a>
+        </div>
+      </div>
+
+      <div class="pc">
+        <span class="p-badge">Agentic AI</span>
+        <div class="p-name">Smart Resource Finder</div>
+        <p class="p-desc">Agentic study assistant with Observe→Think→Act loop using Groq + LLaMA 3.3-70B. Finds curated resources and generates personalized exam study plans with live progress tracking.</p>
+        <div class="p-stack"><span class="sp">LLaMA 3.3</span><span class="sp">Groq</span><span class="sp">Streamlit</span><span class="sp">Tool Calling</span></div>
+        <div class="p-links">
+          <a href="https://github.com/bk1210/Smart-Resource-Finder-Agent" target="_blank" class="pl">&#x2192; GitHub</a>
+          <a href="https://huggingface.co/spaces/bk1210/Smart-Resource-Finder" target="_blank" class="pl">&#x2197; Demo <span class="live">Live</span></a>
+        </div>
+      </div>
+
+      <div class="pc">
+        <span class="p-badge">Reinforcement Learning</span>
+        <div class="p-name">Goalkeeper RL</div>
+        <p class="p-desc">AI goalkeeper trained via PPO in a 2D Pygame simulation. Rule-based threat assessment + shot prediction. State machine: IDLE→TRACKING→READY→DIVING→RECOVERING. Improves each game.</p>
+        <div class="p-stack"><span class="sp">PPO</span><span class="sp">Pygame</span><span class="sp">PyTorch</span><span class="sp">Actor-Critic</span></div>
+        <div class="p-links">
+          <a href="https://github.com/bk1210/Football-Goalkeeper-Training-Using-Reinforcement-Learning" target="_blank" class="pl">&#x2192; GitHub</a>
+        </div>
+      </div>
+
+      <div class="pc">
+        <span class="p-badge">NLP &middot; Web App</span>
+        <div class="p-name">Smart Study Helper</div>
+        <p class="p-desc">AI platform for students with ADHD &amp; dyslexia. T5 PDF summarization, spaCy quiz generation, TTS, multilingual translation in 7 Indian languages. Django + PostgreSQL backend.</p>
+        <div class="p-stack"><span class="sp">Django</span><span class="sp">T5</span><span class="sp">spaCy</span><span class="sp">PostgreSQL</span></div>
+        <div class="p-links">
+          <a href="https://github.com/bk1210/Smart-Study-Helper" target="_blank" class="pl">&#x2192; GitHub</a>
+        </div>
+      </div>
+
+      <div class="pc">
+        <span class="p-badge">ML &middot; Analytics</span>
+        <div class="p-name">Football Fatigue Prediction</div>
+        <p class="p-desc">3-class fatigue prediction from 2.87M wearable sensor readings. Karvonen HR labeling, 88 features per window. Personalized RF: 97.87% accuracy. LOSO 97.96%±2.57%.</p>
+        <div class="p-stack"><span class="sp">scikit-learn</span><span class="sp">SMOTE</span><span class="sp">LOSO CV</span><span class="sp">TensorFlow</span></div>
+        <div class="p-links">
+          <a href="https://github.com/bk1210/Football-Player-Fatigue-Prediction-Wearable-IoT-Sensors-ML" target="_blank" class="pl">&#x2192; GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section" id="skills">
+    <div class="sec-hd">
+      <div class="sec-ico">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+      </div>
+      <span class="sec-title">Skills</span>
+      <span class="sec-sub">From resume</span>
+    </div>
+    <div class="sk-grid">
+
+      <div class="skc">
+        <div class="sk-cat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Analytics &amp; Visualization
+        </div>
+        <div class="sk-tags">
+          <span class="st">Power BI</span><span class="st">Tableau</span><span class="st">Pandas</span>
+          <span class="st">NumPy</span><span class="st">Matplotlib</span><span class="st">Seaborn</span>
+          <span class="st">Plotly</span><span class="st">Statistical Analysis</span>
+          <span class="st">Hypothesis Testing</span><span class="st">EDA Dashboards</span>
+          <span class="st">SPC Control Charts</span><span class="st">Excel</span>
+        </div>
+      </div>
+
+      <div class="skc">
+        <div class="sk-cat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12"/><path d="M12 6v6l4 2"/></svg>
+          Machine Learning
+        </div>
+        <div class="sk-tags">
+          <span class="st">scikit-learn</span><span class="st">Gradient Boosting</span>
+          <span class="st">Random Forest</span><span class="st">Logistic Regression</span>
+          <span class="st">SVM</span><span class="st">Feature Engineering</span>
+          <span class="st">ELO Ratings</span><span class="st">SMOTE</span>
+          <span class="st">LOSO CV</span><span class="st">TimeSeriesSplit</span>
+        </div>
+      </div>
+
+      <div class="skc">
+        <div class="sk-cat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Deep Learning &amp; NLP
+        </div>
+        <div class="sk-tags">
+          <span class="st">PyTorch</span><span class="st">TensorFlow</span>
+          <span class="st">HuggingFace Transformers</span><span class="st">RoBERTa</span>
+          <span class="st">T5</span><span class="st">LSTM / BiLSTM</span>
+          <span class="st">TCN</span><span class="st">GAT (Graph Attention)</span>
+          <span class="st">Multi-task Learning</span><span class="st">Focal Loss</span>
+        </div>
+      </div>
+
+      <div class="skc">
+        <div class="sk-cat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          LLMs, XAI &amp; Tools
+        </div>
+        <div class="sk-tags">
+          <span class="st">LLaMA 3.1</span><span class="st">RAG</span>
+          <span class="st">FAISS</span><span class="st">Sentence-BERT</span>
+          <span class="st">Groq API</span><span class="st">Prompt Engineering</span>
+          <span class="st">SHAP</span><span class="st">LIME</span>
+          <span class="st">Python</span><span class="st">SQL</span>
+          <span class="st">Django</span><span class="st">Streamlit</span>
+          <span class="st">Git / GitHub</span><span class="st">Kaggle GPU</span>
+          <span class="st">Overleaf / LaTeX</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section" id="contact">
+    <div class="sec-hd">
+      <div class="sec-ico">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <span class="sec-title">Contact &amp; Links</span>
+    </div>
+    <div class="c-grid">
+
+      <a href="mailto:bharathkesav1275@gmail.com" class="cc">
+        <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <span class="c-lbl">Email</span>
+        <span class="c-val">bharathkesav1275@gmail.com</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/bharath-kesav-r-5a2067319/" target="_blank" class="cc">
+        <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <span class="c-lbl">LinkedIn</span>
+        <span class="c-val">bharath-kesav-r</span>
+      </a>
+
+      <a href="https://github.com/bk1210" target="_blank" class="cc">
+        <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+        <span class="c-lbl">GitHub</span>
+        <span class="c-val">bk1210</span>
+      </a>
+
+      <a href="https://huggingface.co/bk1210" target="_blank" class="cc">
+        <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-2 14.5v-9l7 4.5-7 4.5z"/></svg></div>
+        <span class="c-lbl">HuggingFace</span>
+        <span class="c-val">bk1210</span>
+      </a>
+
+      <a href="https://www.kaggle.com/bharathkesav" target="_blank" class="cc">
+        <div class="c-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <span class="c-lbl">Kaggle</span>
+        <span class="c-val">bharathkesav</span>
+      </a>
+
+      <a href="https://github.com/bk1210/bk1210/raw/main/Resume.pdf" target="_blank" class="cc">
+        <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <span class="c-lbl">Resume</span>
+        <span class="c-val">Download PDF</span>
+      </a>
+
+      <a href="https://www.instagram.com/bhaaaraath/" target="_blank" class="cc">
+        <div class="c-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        <span class="c-lbl">Instagram</span>
+        <span class="c-val">bhaaaraath</span>
+      </a>
+
+      <div class="cc" style="cursor:default">
+        <div class="c-ico" style="background:#dcfce7"><svg viewBox="0 0 24 24" style="stroke:#166534"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <span class="c-lbl">Location</span>
+        <span class="c-val">Coimbatore &middot; Bengaluru &middot; Chennai &middot; Remote</span>
+      </div>
+
+    </div>
+
+    <div class="avail">
+      <span class="av-dot"></span>
+      <span class="av-tx"><strong>Available for DS/ML internships</strong> &middot; Coimbatore, Bengaluru, Chennai, Remote &amp; Hybrid &middot; 2026</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>&#169; 2026 <span>Bharath Kesav R</span> &middot; Int. M.Sc. Data Science &middot; <span>Amrita Vishwa Vidyapeetham</span></p>
+</footer>
+
+<script>
+const cursor=document.createElement('div');
+cursor.style.cssText='position:fixed;width:8px;height:8px;background:#3d6b9e;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s;opacity:0.7';
+const ring=document.createElement('div');
+ring.style.cssText='position:fixed;width:30px;height:30px;border:1.5px solid #3d6b9e;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.15s;opacity:0.35';
+document.body.appendChild(cursor);document.body.appendChild(ring);
+document.addEventListener('mousemove',e=>{
+  cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px';
+  setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';},80);
+});
+
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:0.08});
+document.querySelectorAll('.pc,.acard,.skc,.cc,.avail').forEach(el=>{
+  el.style.cssText+='opacity:0;transform:translateY(18px);transition:opacity 0.5s ease,transform 0.5s ease';
+  obs.observe(el);
+});
+
+function animCount(el){
+  const t=parseInt(el.dataset.target);const d=1800;const s=performance.now();
+  (function u(now){const p=Math.min((now-s)/d,1);const e=1-Math.pow(1-p,3);
+  el.textContent=Math.round(e*t);if(p<1)requestAnimationFrame(u);})(s);
+}
+const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){animCount(e.target);so.unobserve(e.target);}});},{threshold:0.5});
+document.querySelectorAll('.stat-n[data-target]').forEach(el=>so.observe(el));
+
+// ── LIVE STATS: GitHub repos + HuggingFace spaces ──
+// Fallback values used if APIs fail or rate-limit (cached as of last manual update)
+const FALLBACK_REPOS = 10;
+const FALLBACK_SPACES = 6;
+
+const statEls = document.querySelectorAll('.stat-n');
+// indices: 0 = repos, 1 = live deployments, 2 = domains, 3 = graduating year
+statEls.forEach((el,i)=>{
+  const vals=[String(FALLBACK_REPOS), String(FALLBACK_SPACES), '6', '2027'];
+  el.dataset.target = vals[i];
+  el.textContent = '0';
+  so.observe(el);
+});
+
+const heroStatsLine = document.querySelector('.hero-sub');
+const projSubtitle = document.querySelector('.sec-sub');
+
+function updateHeroText(repoCount, spaceCount){
+  if(heroStatsLine){
+    heroStatsLine.innerHTML = heroStatsLine.innerHTML.replace(
+      /\d+\+?\s*repos,\s*\d+\+?\s*live deployments/i,
+      `${repoCount} repos, ${spaceCount}+ live deployments`
+    );
+  }
+  const projSec = document.getElementById('proj-stats-sub');
+  if(projSec){
+    projSec.textContent = `${repoCount} repos · ${spaceCount}+ live`;
+  }
+}
+
+async function fetchLiveStats(){
+  let repoCount = FALLBACK_REPOS;
+  let spaceCount = FALLBACK_SPACES;
+
+  try{
+    const ghRes = await fetch('https://api.github.com/users/bk1210/repos?per_page=100&type=owner');
+    if(ghRes.ok){
+      const repos = await ghRes.json();
+      if(Array.isArray(repos)) repoCount = repos.length;
+    }
+  }catch(e){ console.warn('GitHub API fetch failed, using fallback', e); }
+
+  try{
+    const hfRes = await fetch('https://huggingface.co/api/spaces?author=bk1210');
+    if(hfRes.ok){
+      const spaces = await hfRes.json();
+      if(Array.isArray(spaces)) spaceCount = spaces.length; // counts ALL spaces incl. sleeping
+    }
+  }catch(e){ console.warn('HuggingFace API fetch failed, using fallback', e); }
+
+  // Update stat counters
+  if(statEls[0]) statEls[0].dataset.target = String(repoCount);
+  if(statEls[1]) statEls[1].dataset.target = String(spaceCount);
+
+  updateHeroText(repoCount, spaceCount);
+}
+
+fetchLiveStats();
+</script>
+</body>
 </html>
